@@ -1,8 +1,8 @@
 //import React, {useContext} from "react"; 
 import useUser from "../../hooks/use-user";
-import * as ROUTES from '../../constants/routes'
+//import * as ROUTES from '../../constants/routes'
 import User from "./User";
-import {Link} from 'react-router-dom'
+//import {Link} from 'react-router-dom'
 import Suggestions from "./Suggestions";
 import { Row, Navbar, Col } from "react-bootstrap";
 import Signout from "./Signout";
@@ -16,7 +16,7 @@ export default function Sidebar() {
     LoggedInUserContext
   ); */
   //user === docId, email, following, fullname, userId, username
-
+console.log(username)
   
   return (
     <>

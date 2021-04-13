@@ -26,7 +26,7 @@ export default function AddComment({
     //give a new array []
     //put the new comment in there
     //add the old comment
-    //now we have a new array with the new comment and the older comments
+    //now I have a new array with the new comment and the older comments
 
 
 

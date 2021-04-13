@@ -139,6 +139,20 @@ export async function updateFollowedUserFollowers(
       docId: item.id
     }));
   }
+
+  export async function getUserProfilePhotosByUsername(username) {
+    const [user] = await getUserByUsername(username);
+    const result = await firebase
+      .firestore()
+      .collection('photos')
+      .where('userId', '==', user.userId)
+      .get();
+  
+    return result.docs.map((item) => ({
+      ...item.data(),
+      docId: item.id
+    }));
+  }
  
   export async function isUserFollowingProfile(loggedInUserUsername, profileUserId) {
     const result = await firebase

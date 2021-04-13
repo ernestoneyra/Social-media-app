@@ -8,7 +8,7 @@ import { Col } from "react-bootstrap";
 export default function Comments({
   docId,
   comments: allComments,
-  posted,
+  //posted,
   commentInput,
 }) {
   const [comments, setComments] = useState(allComments);
@@ -63,6 +63,6 @@ export default function Comments({
 Comments.propTypes = {
   docId: PropTypes.string.isRequired,
   comments: PropTypes.array.isRequired,
-  posted: PropTypes.number.isRequired,
+  //posted: PropTypes.number.isRequired,
   commentInput: PropTypes.object.isRequired,
 };

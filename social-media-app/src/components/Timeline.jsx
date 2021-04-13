@@ -14,30 +14,25 @@ export default function Timeline() {
   //if there are photos, render them (create a post)
   // if the user has no photos, tell them to create some photos
 
-  
-
   return (
     <>
-     <Col>
-            <CreatePost />
-            </Col>
-      <Col className="mb-4">
+      <Col>
+        <CreatePost />
+      </Col>
+      <Col className="mt-3 mb-3 p-0">
         {!photos ? (
           <Skeleton count={4} height={500} className="mb-4" />
         ) : photos?.length > 0 ? (
-          
-          photos.map((content) => <Post key={content.docId} content={content}/>)
+          photos.map((content) => (
+            <Post key={content.docId} content={content} />
+          ))
         ) : (
           <p>Befriend people to see photos!</p>
         )}
       </Col>
-     
     </>
   );
 }
-
-
-
 
 /* import { useContext } from 'react';
 import Skeleton from 'react-loading-skeleton';
@@ -59,18 +54,3 @@ export default function Timeline() {
     </div>
   );
 } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -6,7 +6,7 @@ import Actions from "./Actions";
 import Footer from "./Footer";
 import Comments from "./Comments";
 
-import { Row } from "react-bootstrap";
+import {  Col } from "react-bootstrap";
 
 export default function Post({ content }) {
   const commentInput = useRef(null);
@@ -16,7 +16,7 @@ export default function Post({ content }) {
 
   return (
     <>
-      <Row className="mb-5 col-md-10 col-lg-8 bg-light p-0">
+      <Col className="mb-5  bg-light p-0">
         <Header username={content.username} />
 
         <Image src={content.imageSrc} caption={content.caption} />
@@ -36,7 +36,7 @@ export default function Post({ content }) {
           posted={content.dateCreated}
           commentInput={commentInput}
         />
-      </Row>
+      </Col>
     </>
   );
 }
@@ -51,6 +51,6 @@ Post.propTypes = {
     userLikedPhoto: PropTypes.bool.isRequired,
     likes: PropTypes.array.isRequired,
     comments: PropTypes.array.isRequired,
-    dateCreated: PropTypes.number.isRequired,
+    dateCreated: PropTypes.number,
   }),
 };

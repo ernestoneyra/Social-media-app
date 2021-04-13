@@ -12,7 +12,7 @@ export default function Dasboard2() {
   return (
     <>
       <Header />
-      <Container>
+    <Container>
         <Row className="mt-4">
           <Col xs={9} md={10} lg={9}>
             <Timeline />
@@ -21,7 +21,7 @@ export default function Dasboard2() {
             <Sidebar />
           </Col>
         </Row>
-      </Container>
+        </Container>
     </>
   );
 }

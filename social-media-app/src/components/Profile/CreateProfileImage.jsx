@@ -8,9 +8,10 @@ import { Col, Row, Form, Container, Button, Image } from "react-bootstrap";
 import { storage, db } from "../../lib/Firebase";
 import firebase from "firebase";
 
-export default function CreatePost() {
-  const [caption, setCaption] = useState("");
 
+export default function CreateProfileImage() {
+  const [caption, setCaption] = useState("");
+  
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
   const {
@@ -32,7 +33,7 @@ export default function CreatePost() {
     e.preventDefault();
     if (image) {
       //let imageName = makeId(10)
-      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      const uploadTask = storage.ref(`avatars/${image.name}`).put(image);
 
       uploadTask.on(
         "state_changed",
@@ -51,19 +52,19 @@ export default function CreatePost() {
         () => {
           // get download urls and upload complete function/ post info
           storage
-            .ref("images")
+          .ref(`avatars`)
             .child(`${image.name}`)
             .getDownloadURL()
             .then((imageUrl) => {
             
-              db.collection("photos").add({
+              db.collection(`avatars`).add({
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                caption: caption,
+               
                 imageSrc: imageUrl,
                 photoUrl: imageUrl,
                 userId: userId,
-                likes: [],
-                comments: [],
+           
+          
                 username: username.toLowerCase(),
                 /*  profileUrl: username.photoURL, */
                 /* userProfileUrl:
@@ -81,6 +82,7 @@ export default function CreatePost() {
     }
   };
 
+  
   /*   console.log("Fullname", fullName);
   console.log("username", username);
   console.log("userId", userId);
@@ -93,28 +95,13 @@ export default function CreatePost() {
         <Form>
           {username ? (
             <Col className="p-0">
-              <Form.Group
-                controlId="exampleForm.ControlTextarea1"
-                className=" "
-              >
-                <Form.Label>
-                  <h4 className="m-0 p-0">Create a post</h4>
-                </Form.Label>
-                <Form.Control
-                  as="textarea"
-                  name="create a post"
-                  rows={2}
-                  value={caption}
-                  placeholder="Caption..."
-                  onChange={(e) => setCaption(e.target.value)}
-                />
-              </Form.Group>
-              <Col className="imagePreview ">
+              
+              <Col className="imagePreview">
                 <Image
                   //onClick={() => removeImage()}
                   id="image-1-preview"
-                  className="col-3 m-0 p-0"
-                  rounded
+                  className="col-3 m-0 p-0 "
+                  roundedCircle
                 />
                 {/* {progress === 0 ? (
                   <></>
@@ -159,7 +146,8 @@ export default function CreatePost() {
   );
 }
 
-CreatePost.propTypes = {
+
+CreateProfileImage.propTypes = {
   caption: PropTypes.string,
   username: PropTypes.string,
   comments: PropTypes.array,

@@ -18,9 +18,9 @@ export default function Photos({ photos }) {
             <Image src={photo.imageSrc} alt={photo.caption} className="img-fluid"  />
               
             
-               <div className=" bg-dark d-flex col">
+               <div className=" bg-dark d-flex col h-25 ">
               
-                <p className=" text-white font-weight-bold w-50">
+                <p className=" text-white d-flex font-weight-bold w-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="1 2 20 20"
@@ -36,7 +36,7 @@ export default function Photos({ photos }) {
                   {photo.likes.length}
                 </p>
                 
-                <p className=" text-white font-weight-bold w-50">
+                <p className=" text-white d-flex font-weight-bold w-50 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="1 2 20 20"
