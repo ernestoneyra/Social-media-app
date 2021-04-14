@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import UserContext from '../context/User';
 import { getPhotos, getUserByUserId } from '../services/firebase';
 
+//get photos from collection of photos from a user. 
 
 
 export default function usePhotos() {
