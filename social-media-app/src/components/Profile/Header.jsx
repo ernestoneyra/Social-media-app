@@ -6,10 +6,9 @@ import useUser from "../../hooks/use-user";
 import { isUserFollowingProfile, toggleFollow } from "../../services/firebase";
 import UserContext from "../../context/User";
 import { Button, Image, Row, Col } from "react-bootstrap";
-import CreateProfileImage from "./CreateProfileImage";
-import firebase from 'firebase'
-import getUserAvatars from '../../services/firebase'
-import { storage, db } from "../../lib/Firebase";
+
+
+import {  db } from "../../lib/Firebase";
 
 
 export default function Header({
@@ -107,13 +106,14 @@ console.log(user.username)
           
        {image && user.username ? (
         
-            <Image
-            src={image[0].imageSrc} 
-            alt={image[0].name}
-            roundedCircle
-            
-            width="auto"
-            height="80px"/>
+        <Image
+              alt={`${user.displayName} profile`}
+              roundedCircle
+              className=""
+              src={`/images/avatars/${profileUsername}.jpg`}
+              width="auto"
+              height="80px"
+            />
       
           
             
@@ -134,7 +134,7 @@ console.log(user.username)
         
           
         </Col> 
-        <CreateProfileImage />
+        
         <Col className=" col-lg-10 col-md-10 ">
           <p className="font-weight-bold">{profileUsername}</p>
 
