@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import Skeleton from 'react-loading-skeleton';
-import { Row, Image, Col} from 'react-bootstrap'
-import '../../styles/global.css'
+import PropTypes from "prop-types";
+import Skeleton from "react-loading-skeleton";
+import { Row, Image, Col } from "react-bootstrap";
+import "../../styles/global.css";
 
 export default function Photos({ photos }) {
   return (
@@ -13,13 +13,14 @@ export default function Photos({ photos }) {
           </>
         ) : photos.length > 0 ? (
           photos.map((photo) => (
-            
             <Col key={photo.docId} className="">
-            <Image src={photo.imageSrc} alt={photo.caption} className="img-fluid"  />
-              
-            
-               <div className=" bg-dark d-flex col h-25 ">
-              
+              <Image
+                src={photo.imageSrc}
+                alt={photo.caption}
+                className="img-fluid"
+              />
+
+              <div className=" bg-dark d-flex col h-25 ">
                 <p className=" text-white d-flex font-weight-bold w-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +36,7 @@ export default function Photos({ photos }) {
                   </svg>
                   {photo.likes.length}
                 </p>
-                
+
                 <p className=" text-white d-flex font-weight-bold w-50 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -51,21 +52,21 @@ export default function Photos({ photos }) {
                   </svg>
                   {photo.comments.length}
                 </p>
-              </div> 
-              </Col>
-           
-       
-            
+              </div>
+            </Col>
           ))
         ) : null}
       </div>
-<Col>{!photos || (photos.length === 0 && <p className="d-flex justify-content-center">No Photos Yet</p>)}</Col>
-      
+      <Col>
+        {!photos ||
+          (photos.length === 0 && (
+            <p className="d-flex justify-content-center">No Photos Yet</p>
+          ))}
+      </Col>
     </Row>
   );
 }
 
 Photos.propTypes = {
-  photos: PropTypes.array.isRequired
+  photos: PropTypes.array.isRequired,
 };
-

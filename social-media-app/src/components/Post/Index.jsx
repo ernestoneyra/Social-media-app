@@ -6,7 +6,7 @@ import Actions from "./Actions";
 import Footer from "./Footer";
 import Comments from "./Comments";
 
-import {  Col } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 export default function Post({ content }) {
   const commentInput = useRef(null);

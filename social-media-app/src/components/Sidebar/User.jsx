@@ -1,10 +1,7 @@
 import PropTypes from "prop-types";
-
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import { Image, Col} from "react-bootstrap";
-
-
 
 const User = ({ username, fullName }) =>
 

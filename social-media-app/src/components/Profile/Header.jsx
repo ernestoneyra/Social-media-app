@@ -7,12 +7,7 @@ import { isUserFollowingProfile, toggleFollow } from "../../services/firebase";
 import UserContext from "../../context/User";
 import { Button, Image, Row, Col } from "react-bootstrap";
 
-
-import {  db } from "../../lib/Firebase";
-
-
 export default function Header({
-  
   photosCount,
   followerCount,
   setFollowerCount,
@@ -25,8 +20,6 @@ export default function Header({
     username: profileUsername,
   },
 }) {
-  const [image, setImage] = useState("")
-  //const [users, setUsers] = useState("")
   const { user: loggedInUser } = useContext(UserContext);
   const { user } = useUser(loggedInUser?.uid);
   const [isFollowingProfile, setIsFollowingProfile] = useState(false);
@@ -52,7 +45,7 @@ export default function Header({
         user.username,
         profileUserId
       );
-      setIsFollowingProfile(!isFollowing);
+      setIsFollowingProfile(!!isFollowing);
     };
 
     if (user?.username && profileUserId) {
@@ -60,53 +53,12 @@ export default function Header({
     }
   }, [user?.username, profileUserId]);
 
-console.log(user.username)
-/*   console.log(profileUserId);
-  console.log(profileUsername);
-  console.log(followers); */
-  //console.log(user)
-
-/*  useEffect(() => {
-  const result = await firebase
-      .firestore()
-      .collection('photos')
-      .where('userId', '==', user.userId)
-      .get();
-  
-    return result.docs.map((item) => ({
-      ...item.data(),
-      docId: item.id
-    }));
- })  */
-
- 
-
-
- useEffect(() => {
-   const fetchImage = async () => {
-     const imageCollected = await db.collection('avatars').get()
-     setImage(imageCollected.docs.map(doc => {
-       return doc.data()
-     }))
-   }
-   fetchImage()
- }, [])
-
-
-
-
-
- 
- console.log(image)
-
   return (
     <div className="border-bottom border-dark">
       <Row className="  mt-3 mb-3">
-       <Col className="d-flex justify-content-center">
-          
-       {image && user.username ? (
-        
-        <Image
+        <Col className="d-flex justify-content-center">
+          {profileUsername ? (
+            <Image
               alt={`${user.displayName} profile`}
               roundedCircle
               className=""
@@ -114,12 +66,7 @@ console.log(user.username)
               width="auto"
               height="80px"
             />
-      
-          
-            
-
-          ):(
-          
+          ) : (
             <Image
               alt={`${user.displayName} profile`}
               roundedCircle
@@ -129,12 +76,8 @@ console.log(user.username)
               height="80px"
             />
           )}
- 
-           
-        
-          
-        </Col> 
-        
+        </Col>
+
         <Col className=" col-lg-10 col-md-10 ">
           <p className="font-weight-bold">{profileUsername}</p>
 
@@ -163,7 +106,6 @@ console.log(user.username)
                 <Row>
                   <p className="mr-5">
                     <span className="font-weight-bold">{followerCount}</span>
-                    {` `}
                     friended
                   </p>
                 </Row>
@@ -197,27 +139,3 @@ Header.propTypes = {
     following: PropTypes.array,
   }).isRequired,
 };
-
-/* {profileUsername ? (
-            
-            <Image
-              alt={`${profileUsername} profile`}
-              roundedCircle
-              className=""
-              src={users.avatar}
-              //src={`/images/avatars/${profileUsername}.jpg`}
-              width="auto"
-              height="80px"
-            />
-          ) : (
-            <Image
-              alt={`${user.displayName} profile`}
-              roundedCircle
-              className=""
-              src={`/images/avatars/${profileUsername}.jpg`}
-              width="auto"
-              height="80px"
-            />
-          )} */
-
-          

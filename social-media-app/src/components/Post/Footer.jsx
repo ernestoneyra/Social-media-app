@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 
-
 export default function Footer({ caption, username }) {
   return (
     <div className=" mb-3 pl-0 border-bottom w-100">

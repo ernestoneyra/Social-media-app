@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Row } from "react-bootstrap";
 import * as ROUTES from "../../constants/routes";
@@ -36,3 +36,4 @@ export default function Signout() {
     </div>
   );
 }
+ */

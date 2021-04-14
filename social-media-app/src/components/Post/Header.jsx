@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Col, Image} from "react-bootstrap";
+import { Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function Header({ username }) {
@@ -14,9 +14,6 @@ export default function Header({ username }) {
           ></Image>
           <p className="ml-3 text-dark font-weight-bold">{username}</p>
         </Link>
-        
-        
-        
       </Col>
     </>
   );

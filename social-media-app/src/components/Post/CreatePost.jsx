@@ -4,7 +4,6 @@ import useUser from "../../hooks/use-user";
 import Skeleton from "react-loading-skeleton";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { Col, Row, Form, Container, Button, Image } from "react-bootstrap";
-
 import { storage, db } from "../../lib/Firebase";
 import firebase from "firebase";
 
@@ -55,7 +54,6 @@ export default function CreatePost() {
             .child(`${image.name}`)
             .getDownloadURL()
             .then((imageUrl) => {
-            
               db.collection("photos").add({
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 caption: caption,

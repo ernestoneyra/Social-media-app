@@ -1,23 +1,13 @@
-//import React, {useContext} from "react"; 
 import useUser from "../../hooks/use-user";
-//import * as ROUTES from '../../constants/routes'
 import User from "./User";
-//import {Link} from 'react-router-dom'
 import Suggestions from "./Suggestions";
 import { Row, Navbar, Col } from "react-bootstrap";
-import Signout from "./Signout";
-//import LoggedInUserContext from '../../context/LoggedInUser';
 
 export default function Sidebar() {
   const {
     user: { fullName, username, userId, following, docId },
   } = useUser();
- /*  const { user: { docId = '', fullName, username, userId, following } = {} } = useContext(
-    LoggedInUserContext
-  ); */
-  //user === docId, email, following, fullname, userId, username
-console.log(username)
-  
+
   return (
     <>
       <Navbar collapseOnSelect expand="sm" bg="" variant="light">
@@ -40,23 +30,11 @@ console.log(username)
                 loggedInUserDocId={docId}
               />
             </Col>
-            
-            <Col>
-              <Signout />
-            </Col>
+
+            <Col></Col>
           </Row>
         </Navbar.Collapse>
       </Navbar>
     </>
   );
 }
-
-/* <Row>
-<User
-  username={username}
-  fullName={fullName}
-
-/>
-<Suggestions userId={userId} following={following} loggedInUserDocId={docId}/>
-</Row>
- */

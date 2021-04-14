@@ -20,15 +20,13 @@ export default function AddComment({
     event.preventDefault();
 
     //setComments([ { displayName, comment },  ...comments]);
-    setComments([...comments, { displayName, comment }   ]);
+    setComments([...comments, { displayName, comment }]);
     setComment("");
 
     //give a new array []
     //put the new comment in there
     //add the old comment
     //now I have a new array with the new comment and the older comments
-
-
 
     return firebase
       .firestore()
