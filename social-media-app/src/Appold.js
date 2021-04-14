@@ -1,9 +1,8 @@
 import React from "react";
-
+import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Sign-up";
-import Profile from './pages/Profile'
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
 //import Dashboard from "./pages/Dashboard";
@@ -11,25 +10,18 @@ import UpdateProfile from "./pages/UpdateProfile";
 import PrivateRoute from "./constants/PrivateRoute";
 import * as ROUTES from "./constants/routes";
 import { AuthProvider } from "./context/AuthContext";
-import "./styles/global.css";
+import "./styles/app.css";
 import Dashboard2 from "./pages/Dasboard2";
-import useAuthListener from "./hooks/use-auth-listener";
-import UserContext from './context/User';
-import CreatePost from "./components/Post/CreatePost";
 
 if (module.hot) {
   module.hot.accept();
 }
 
 function App() {
-
-  const {user} = useAuthListener();
-
   return (
     <>
-    <UserContext.Provider value={{user}}>
       <AuthProvider>
-        
+        <Container>
           <Router>
             <AuthProvider>
               <Switch>
@@ -38,7 +30,7 @@ function App() {
                   path={ROUTES.DASHBOARD}
                   component={Dashboard2}
                 />
-                
+                <div className="align-items-center justify-content-center center">
                   <Route path={ROUTES.LOGIN} component={Login} />
                   <Route path={ROUTES.SIGN_UP} component={Signup} />
                   <Route path={ROUTES.NOT_FOUND} component={NotFound} />
@@ -46,22 +38,18 @@ function App() {
                     path={ROUTES.RESET_PASSWORD}
                     component={ResetPassword}
                   />
-                  <Route path={ROUTES.CREATE_POST} component={CreatePost} />
-                 
-                  <Route path={ROUTES.PROFILE} component={Profile} />
                   <Route
                     path={ROUTES.UPDATE_PROFILE}
                     component={UpdateProfile}
                   />
-             
+                </div>
               </Switch>
             </AuthProvider>
 
             {/*        </FirebaseContext.Provider> */}
           </Router>
-       
+        </Container>
       </AuthProvider>
-      </UserContext.Provider>
     </>
   );
 }

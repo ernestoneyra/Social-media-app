@@ -1,0 +1,7 @@
+PropTypes
+
+firebase calls
+
+behöver inte byta/lägga upp profilbild.
+
+blir bra som den är nu

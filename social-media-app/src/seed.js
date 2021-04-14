@@ -2,7 +2,7 @@
 export function seedDatabase(firebase) {
     const users = [
       {
-        userId: 'SSYDQyN8T3OWqFMlUwiyLKYPjvi1',
+        userId: 'kVfSE0EagUZw1D2H7kDujanVCvv1',
         username: 'ernesto',
         fullName: 'Ernesto Neyra',
         emailAddress: 'vastermalm89@gmail.com',
@@ -16,7 +16,7 @@ export function seedDatabase(firebase) {
         fullName: 'Mikey Hughes',
         emailAddress: 'mikey@hughes.com',
         following: [],
-        followers: ['SSYDQyN8T3OWqFMlUwiyLKYPjvi1'],
+        followers: ['kVfSE0EagUZw1D2H7kDujanVCvv1'],
         dateCreated: Date.now()
       },
       {
@@ -25,7 +25,7 @@ export function seedDatabase(firebase) {
         fullName: 'Jane Doe',
         emailAddress: 'jane@doe.com',
         following: [],
-        followers: ['SSYDQyN8T3OWqFMlUwiyLKYPjvi1'],
+        followers: ['kVfSE0EagUZw1D2H7kDujanVCvv1'],
         dateCreated: Date.now()
       },
       {
@@ -34,7 +34,7 @@ export function seedDatabase(firebase) {
         fullName: 'Huskey Range',
         emailAddress: 'huskey@range.com',
         following: [],
-        followers: ['SSYDQyN8T3OWqFMlUwiyLKYPjvi1'],
+        followers: ['kVfSE0EagUZw1D2H7kDujanVCvv1'],
         dateCreated: Date.now()
       }
     ];
@@ -52,16 +52,16 @@ export function seedDatabase(firebase) {
         .add({
           photoId: i,
           userId: '2',
-          imageSrc: `/images/users/raphael/${i}.jpg`,
+          imageSrc: `/images/users/mikey/${i}.jpg`,
           caption: 'Saint George and the Dragon',
           likes: [],
           comments: [
             {
-              displayName: 'dali',
+              displayName: 'jane',
               comment: 'Love this place, looks like my animal farm!'
             },
             {
-              displayName: 'orwell',
+              displayName: 'huskey',
               comment: 'Would you mind if I used this picture?'
             }
           ],
@@ -71,23 +71,23 @@ export function seedDatabase(firebase) {
         });
     }
     // eslint-disable-next-line prefer-const
-    for (let i = 1; i <= 5; ++i) {
+    /* for (let i = 1; i <= 5; ++i) {
       firebase
         .firestore()
-        .collection('videos')
+        .collection('photos')
         .add({
-          videoId: i,
-          userId: '2',
-          videoSrc: `/videos/users/husky/${i}.mp4`,
+          photoId: i,
+          userId: '4',
+          photoSrc: `/videos/users/jane/${i}.mp4`,
           caption: 'Carbonated Water',
           likes: [],
           comments: [
             {
-              displayName: 'john',
+              displayName: 'mikey',
               comment: 'Looks really tasty!'
             },
             {
-              displayName: 'Jane',
+              displayName: 'huskey',
               comment: 'Would you mind if I drink this?'
             }
           ],
@@ -95,6 +95,6 @@ export function seedDatabase(firebase) {
           userLongitude: '74.0060°',
           dateCreated: Date.now()
         });
-    }
+    } */
   }
   

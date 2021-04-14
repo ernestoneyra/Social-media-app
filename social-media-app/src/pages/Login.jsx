@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Card, Alert, Form, Button } from "react-bootstrap";
 import {useAuth} from "../context/AuthContext";
-import "./Login.css";
+import '../styles/global.css'
 import Logo from "../components/Logo";
 import * as ROUTES from "../constants/routes";
 
@@ -39,10 +39,10 @@ export default function Login() {
   }, []);
 
   return (
-    <>
+    <div className=" center centerapp">
       <Logo />
-      <Card>
-        <Card.Body>
+      <Card className="mt-5 ">
+        <Card.Body >
           <h2 className="text-center  mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
 
@@ -50,7 +50,7 @@ export default function Login() {
             <Form.Group id="email">
               <Form.Control
                 type="email"
-                placeholder="Email Adress"
+                placeholder="Email adress"
                 onChange={({ target }) => setEmail(target.value)}
                 value={email}
                 required
@@ -73,7 +73,7 @@ export default function Login() {
               className="w-100 btn-info"
               type="submit"
             >
-              Log In
+              Login
             </Button>
           </Form>
 
@@ -86,6 +86,6 @@ export default function Login() {
       <div className="w-100 text-center mt-2">
         Don't have an account? <Link to={ROUTES.SIGN_UP}>Create account</Link>
       </div>
-    </>
+    </div>
   );
 }
